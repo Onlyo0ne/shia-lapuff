@@ -1,0 +1,1 @@
+node_modules/\ntarget/\n*.tar.gz\n*.log\n.env.local\n.DS_Store
