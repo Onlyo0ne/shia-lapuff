@@ -5,6 +5,7 @@ import com.shialapuff.dto.LoginRequest;
 import com.shialapuff.dto.RegisterRequest;
 import com.shialapuff.security.JwtUtil;
 import com.shialapuff.user.entity.User;
+import com.shialapuff.user.entity.UserRole;
 import com.shialapuff.user.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -59,7 +60,7 @@ public class AuthService {
         user.setEmail(request.getEmail());
         user.setDisplayName(request.getDisplayName());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(User.UserRole.USER);
+        user.setRole(UserRole.USER);
 
         User savedUser = userRepository.save(user);
 
