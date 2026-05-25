@@ -32,8 +32,4 @@ public class User {
     private String avatarUrl;
 
     private LocalDateTime createdAt = LocalDateTime.now();
-
-    public enum UserRole {
-        USER, ADMIN
-    }
 }
