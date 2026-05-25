@@ -80,6 +80,7 @@ public class AdminController {
                 .orElseThrow(() -> new RuntimeException("Process item not found"));
         item.setProgress(dto.getProgress());
         if (dto.getProgress() != null && dto.getProgress() == 100) {
+            item.setReady(true);
             item.setFinalVolume(dto.getFinalVolume());
         }
         return ResponseEntity.ok(processItemRepository.save(item));
@@ -92,7 +93,7 @@ public class AdminController {
         record.setName(dto.getName());
         record.setVolume(dto.getVolume());
         record.setAmount(dto.getAmount());
-        record.setType(AccountingRecord.RecordType.valueOf(dto.getType()));
+        record.setType(AccountingRecord.RecordType.valueOf(dto.getType().toUpperCase()));
         return ResponseEntity.ok(accountingRecordRepository.save(record));
     }
 
