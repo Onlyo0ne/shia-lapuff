@@ -80,7 +80,10 @@ public class AdminController {
                 .orElseThrow(() -> new RuntimeException("Process item not found"));
         item.setProgress(dto.getProgress());
         if (dto.getProgress() == 100) {
-            // Прогресс 100% означает готовность
+            // Прогресс 100% означает готовность - можно дополнительно установить финальный объем
+            if (dto.getFinalVolume() != null) {
+                item.setFinalVolume(dto.getFinalVolume());
+            }
         }
         return ResponseEntity.ok(processItemRepository.save(item));
     }
