@@ -9,4 +9,5 @@ public class ProcessItemDto {
     private String type; // BARREL, JAR
     private int progress;
     private LocalDate startDate;
+    private Double finalVolume;
 }

@@ -79,9 +79,8 @@ public class AdminController {
         ProcessItem item = processItemRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Process item not found"));
         item.setProgress(dto.getProgress());
-        if (dto.getProgress() != null && dto.getProgress() == 100) {
-            item.setReady(true);
-            item.setFinalVolume(dto.getFinalVolume());
+        if (dto.getProgress() == 100) {
+            // Прогресс 100% означает готовность
         }
         return ResponseEntity.ok(processItemRepository.save(item));
     }
