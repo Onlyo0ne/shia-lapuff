@@ -1,6 +1,7 @@
 package com.shialapuff.core;
 
 import com.shialapuff.user.entity.User;
+import com.shialapuff.user.entity.UserRole;
 import com.shialapuff.user.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +20,7 @@ public class DataInitializer {
                 admin.setEmail("admin@shialapuff.com");
                 admin.setDisplayName("Admin");
                 admin.setPassword(passwordEncoder.encode("admin"));
-                admin.setRole(User.UserRole.ADMIN);
+                admin.setRole(UserRole.ADMIN);
                 userRepository.save(admin);
                 System.out.println("Created admin user: admin@shialapuff.com / admin");
             }
@@ -30,7 +31,7 @@ public class DataInitializer {
                 user.setEmail("user@shialapuff.com");
                 user.setDisplayName("User");
                 user.setPassword(passwordEncoder.encode("user"));
-                user.setRole(User.UserRole.USER);
+                user.setRole(UserRole.USER);
                 userRepository.save(user);
                 System.out.println("Created regular user: user@shialapuff.com / user");
             }
