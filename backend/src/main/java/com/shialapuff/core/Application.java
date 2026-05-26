@@ -3,8 +3,16 @@ package com.shialapuff.core;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
+@EntityScan(basePackages = {
+    "com.shialapuff.user.entity",
+    "com.shialapuff.catalog.entity",
+    "com.shialapuff.reviews.entity",
+    "com.shialapuff.process.entity",
+    "com.shialapuff.admin.entity"
+})
 @EnableJpaRepositories(basePackages = {
     "com.shialapuff.user.repository",
     "com.shialapuff.catalog.repository",
